@@ -10,16 +10,67 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <%= link_to new_order_path do %>
+            <%= image_tag "logo.png", class: "logo" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_order_path do %>
+            <i class="fa fa-check"></i> Réserver un groom
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="fa fa-euro"></i> Tarifs
+          <% end %>
+        </li>
+        <li>
+          <%= link_to edit_user_path(current_user) do %>
+            <i class="fa fa-user"></i> Profil
+          <% end %>
+        </li>
+        <li>
+          <%= link_to orders_path do %>
+            <i class="fa fa-euro"></i> Commandes
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path do %>
+            <i class="fa fa-sign-out"></i> Déconnexion
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
 
-<%= render 'layouts/sessions' %>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="notices">
-  <%= render "layouts/notices" %>
-</div>
+  <div class="notices">
+    <%= render "layouts/notices" %>
+  </div>
 
-<%= yield %>
 
 <%= javascript_include_tag 'application' %>
+<% javascript_tag do %>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+<% end %>
 <%= yield(:js) %>
 </body>
 </html>

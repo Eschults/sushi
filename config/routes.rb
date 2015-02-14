@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:new, :create, :index, :show]
 
+  resources :users, only: [:edit, :update]
+
 end
