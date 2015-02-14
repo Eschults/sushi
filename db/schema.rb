@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214133356) do
+ActiveRecord::Schema.define(version: 20150214140321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.string   "order_number"
+    t.datetime "pickup_date"
+    t.datetime "delivery_date"
+    t.boolean  "paid"
+    t.integer  "price_cents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -35,6 +48,12 @@ ActiveRecord::Schema.define(version: 20150214133356) do
     t.string   "name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "street"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
