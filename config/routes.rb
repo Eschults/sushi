@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
 
-  resources :charges
+  resources :stripe_customers
 
 end

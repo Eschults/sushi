@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
       if current_user.stripe_customer_token
         redirect_to order_path(@order)
       else
-        redirect_to new_charge_path
+        redirect_to new_stripe_customer_path
+      end
     else
       render :new
     end

@@ -19,11 +19,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def save_stripe_token
-    customer = Stripe::Customer.create(
-      email: email,
-      card: params[:stripeToken]
-    )
+  def save_stripe_token(customer)
     stripe_customer_token = customer.id
     self.save
     rescue Stripe::InvalidRequestError => e
