@@ -6,7 +6,6 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
-gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

@@ -3,9 +3,16 @@ $hip-color: rgb(132, 171, 168);
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "navbar";
+@import "home";
+
 
 .logo {
   height: 200px;
+}
+
+.logo-navbar {
+  height: 100px;
 }
 
 #wrapper {
