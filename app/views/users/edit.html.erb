@@ -22,16 +22,16 @@
       <%= f.text_field :street, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :city, "Ville" %>
-      <%= f.text_field :city, class: "form-control" %>
-    </div>
-    <div class="form-group">
       <%= f.label :zipcode, "Code postal" %>
       <%= f.text_field :zipcode, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :address_details, "Code postal" %>
-      <%= f.textarea :address_details, class: "form-control" %>
+      <%= f.label :city, "Ville" %>
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address_details, "Digicode, bâtiment, étage..." %>
+      <%= f.text_area :address_details, class: "form-control" %>
     </div>
     <%= f.submit "Enregistrer", class: "btn btn-primary" %>
   <% end %>
