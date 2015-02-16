@@ -7,7 +7,10 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     if @order.save
-      redirect_to order_path(@order)
+      if current_user.stripe_customer_token
+        redirect_to order_path(@order)
+      else
+        redirect_to new_charge_path
     else
       render :new
     end

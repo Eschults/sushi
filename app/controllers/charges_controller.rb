@@ -3,25 +3,28 @@ class ChargesController < ApplicationController
   end
 
   def create
+    set_order
     # Amount in cents
-    @amount = 500
+    @amount = @order.price * 100
 
-    customer = Stripe::Customer.create(
-      :email => 'example@stripe.com',
-      :card  => params[:stripeToken]
-    )
+    customer_id = current_user.stripe_customer_token
 
     charge = Stripe::Charge.create(
-      :customer    => customer.id,
+      :customer    => customer_id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
       :currency    => 'eur'
     )
 
-    save_stripe_customer_id(user, customer.id)
-
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
   end
+
+  private
+
+  def set_order
+    @order = Order.find(params[:order_id])
+  end
+
 end
