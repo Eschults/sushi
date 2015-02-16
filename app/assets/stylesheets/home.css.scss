@@ -14,5 +14,43 @@
   font-size: 32px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
   font-weight: normal;
+}
 
+
+.why-hipcleaner {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+.title {
+  padding-bottom: 50px;
+}
+
+.servicestitle {
+  font-weight: 300;
+}
+
+.pricing {
+  padding: 80px;
+  background-color: #F4F4F4;
+}
+
+.minimum-order {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.map {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+#how-it-works-scroll-helper {
+  position: relative;
+  bottom: 100px;
+}
+
+#pricing-scroll-helper {
+  position: relative;
+  bottom: 100px;
 }

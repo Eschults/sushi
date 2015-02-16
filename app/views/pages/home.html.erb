@@ -8,7 +8,11 @@
  <p><%= link_to "Découvrez HipCleaner", root_path, class: "btn btn-primary -lg" %></p>
 </div>
 
-<div class="why-hipcleaner">
+<div class="why-hipcleaner text-center">
+  <div id="how-it-works-scroll-helper"></div>
+  <div class="title">
+    <h2>Simple et efficace</h2>
+  </div>
   <div class="container text-center">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
@@ -19,31 +23,136 @@
       <div class="col-xs-12 col-sm-4">
         <%= image_tag ('livraison.png') %>
         <h4>Récupération</h4>
-        <p>Un de nos grooms passe prendre à votre linge à votre domicile</p>
+        <p>Un de nos grooms passe prendre votre linge à votre domicile</p>
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= image_tag ('chemise.png') %>
         <h4>Professionalisme</h4>
-        <p>Un service de qualité avec un pressing  </p>
+        <p>Nous travaillons uniquement avec des pressings connus et reconnus pour leur savoir-faire et leur expérience </p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="why-hipcleaner">
+<div class="pricing text-center">
+  <div id="pricing-scroll-helper"></div>
+  <div class="title">
+    <h2>Au même prix que votre pressing</h2>
+  </div>
   <div class="container text-center">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <%= image_tag ('ordinateur.png') %>
-        <h4>Commande</h4>
-        <p>L'heure et la date, c'est vous qui décidez ! Commencez dès maintenant à organiser votre temps libre !</p>
+      <div class="col-xs-12 col-sm-4 padding-none">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="2" style="background-color:RGBA(40, 40, 40, 0.9);color:#fff;border:1px solid rgba(30, 30, 30, 0.9);"><h4 style="color:#fff" class="servicestitle text-center">Pressing</h4></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Costume</td>
+                <td>16,00€</td>
+              </tr>
+              <tr>
+                <td>Chemise</td>
+                <td>4,00€</td>
+              </tr>
+              <tr>
+                <td>Robe</td>
+                <td>10,00€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= image_tag ('livraison.png') %>
-        <h4>Récupération</h4>
-        <p>Un de nos grooms passe prendre à votre linge à votre domicile</p>
+      <div class="col-xs-12 col-sm-4 padding-none">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="2" style="background-color:RGBA(40, 40, 40, 0.9);color:#fff;border:1px solid rgba(30, 30, 30, 0.9);"><h4 style="color:#fff" class="servicestitle text-center">Pressing</h4></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pantalon</td>
+                <td>7,50€</td>
+              </tr>
+              <tr>
+                <td>Pull</td>
+                <td>6,00€</td>
+              </tr>
+              <tr>
+                <td>Cravate</td>
+                <td>7,00€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
+      <div class="col-xs-12 col-sm-4 padding-none">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="2" style="background-color:RGBA(40, 40, 40, 0.9);color:#fff;border:1px solid rgba(30, 30, 30, 0.9);"><h4 style="color:#fff" class="servicestitle text-center">Ameublement</h4></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Costume</td>
+                <td>16,00€</td>
+              </tr>
+              <tr>
+                <td>Chemise</td>
+                <td>4,00€</td>
+              </tr>
+              <tr>
+                <td>Robe</td>
+                <td>10,00€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-12 minimum-order">
+        <p>Commande minimum de 20 €. Frais de livraison de 7€, offerts à partir de 35€.</p>
+      </div>
     </div>
   </div>
 </div>
+
+<div class="map">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12 title">
+        <h1>HipCleaner est disponible à Paris</h1>
+      </div>
+      <div class="col-xs-12">
+      <%= image_tag ('map.png') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% content_for(:js) do %>
+  <script>
+  $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+  </script>
+<% end %>
+
