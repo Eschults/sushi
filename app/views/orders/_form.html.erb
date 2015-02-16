@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <%= f.label :delivery_date, "Date de restitution" %>
-    <%= f.date_field :delivery_date, required: true, min: Date.today + 2, class: "form-control" %>
+    <%= f.date_field :delivery_date, required: true, min: Time.now.hour < 16 ? Date.today + 2 : Date.today + 3, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :delivery_time, "A quelle heure" %>
