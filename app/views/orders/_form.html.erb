@@ -1,11 +1,11 @@
 <%= form_for @order do |f| %>
   <div class="form-group">
     <%= f.label :pickup_date, "Date de récupération" %>
-    <%= f.datetime_field :pickup_date, class: "form-control" %>
+    <%= f.date_field :pickup_date, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :delivery_date, "Date de restitution" %>
-    <%= f.datetime_field :delivery_date, class: "form-control" %>
+    <%= f.date_field :delivery_date, class: "form-control" %>
   </div>
   <%= f.submit "Réserver", class: "btn btn-primary" %>
 <% end %>

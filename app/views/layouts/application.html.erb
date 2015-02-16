@@ -11,40 +11,9 @@
 </head>
 <body>
   <div id="wrapper">
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <%= link_to new_order_path do %>
-            <%= image_tag "logo.png", class: "logo" %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_order_path do %>
-            <i class="fa fa-check"></i> Réserver un groom
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-            <i class="fa fa-euro"></i> Tarifs
-          <% end %>
-        </li>
-        <li>
-          <%= link_to edit_user_path(current_user) do %>
-            <i class="fa fa-user"></i> Profil
-          <% end %>
-        </li>
-        <li>
-          <%= link_to orders_path do %>
-            <i class="fa fa-euro"></i> Commandes
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path do %>
-            <i class="fa fa-sign-out"></i> Déconnexion
-          <% end %>
-        </li>
-      </ul>
-    </div>
+    <% if user_signed_in? %>
+      <%= render "shared/sidenav" %>
+    <% end %>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
