@@ -1,0 +1,64 @@
+<div class="col-md-4">
+  <%= form_tag stripe_customers_path, id: "stripe_customer_form" do %>
+    <span class="payment-errors"></span>
+    <div class="form-group">
+      <%= label_tag :card_number, "Numéro de carte" %>
+      <%= text_field_tag :card_number, nil, name: nil, class: "form-control",html: {data: {stripe: "number"}} %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :card_code, "Code de sécurité (CVV)" %>
+      <%= text_field_tag :card_code, nil, name: nil, class: "form-control", html: {data: {stripe: "cvc"}} %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :card_month, "Expiration" %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", class: "form-control", data: {stripe: "exp-month"}} %>
+        </div>
+        <div class="col-xs-6">
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", class: "form-control", data: {stripe: "exp-year"}} %>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Valider</button>
+  <% end %>
+</div>
+
+
+<% content_for :js do %>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <% javascript_tag do %>
+    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+
+    function stripeResponseHandler(status, response) {
+      var $form = $('#stripe_customer_form');
+
+      if (response.error) {
+        // Show the errors on the form
+        $form.find('.payment-errors').text(response.error.message);
+        $form.find('button').prop('disabled', false);
+      } else {
+        // response contains id and card, which contains additional card details
+        var token = response.id;
+        // Insert the token into the form so it gets submitted to the server
+        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+        // and submit
+        $form.get(0).submit();
+      }
+    };
+
+    $(function() {
+      $('#stripe_customer_form').submit(function(event) {
+        var $form = $(this);
+
+        // Disable the submit button to prevent repeated clicks
+        $form.find('button').prop('disabled', true);
+
+        Stripe.card.createToken($form, stripeResponseHandler);
+
+        // Prevent the form from submitting with the default action
+        return false;
+      });
+    });
+  <% end %>
+<% end %>
