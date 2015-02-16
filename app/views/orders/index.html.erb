@@ -2,7 +2,7 @@
 
 
 <% if @orders.size > 0 %>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Date de la commande</th>
@@ -17,12 +17,12 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.created_at.strftime("%D") %></td>
-          <td><%= order.pickup_date.strftime("%D") %></td>
+          <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+          <td><%= order.pickup_date.strftime("%d/%m/%y") %></td>
           <td><%= order.pickup_time.strftime("%Hh%M") %></td>
-          <td><%= order.delivery_date.strftime("%D") %></td>
+          <td><%= order.delivery_date.strftime("%d/%m/%y") %></td>
           <td><%= order.delivery_time.strftime("%Hh%M") %></td>
-          <td><%= order.price %>€</td>
+          <td><%= order.price.nil? ? "nd" : "#{order.price}€" %></td>
           <td><%= order.paid ? "Effectué" : "En attente" %></td>
         </tr>
       <% end %>

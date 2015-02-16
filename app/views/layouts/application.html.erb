@@ -10,7 +10,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "shared/navbar" %>
   <div id="wrapper">
     <% if user_signed_in? %>
       <%= render "shared/sidenav" %>
@@ -29,9 +28,6 @@
     </div>
   </div>
 
-  <div class="notices">
-    <%= render "layouts/notices" %>
-  </div>
 
 
 <%= javascript_include_tag 'application' %>
