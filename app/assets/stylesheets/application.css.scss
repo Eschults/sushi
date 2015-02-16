@@ -1,3 +1,9 @@
+$gray-base: #000;
+$gray: lighten($gray-base, 33.5%);
+$gray-darker: lighten($gray-base, 13.5%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-dark: lighten($gray-base, 20%);
+$gray-lighter: lighten($gray-base, 85%);
 $hip-color: rgb(132, 171, 168);
 
 @import "bootstrap";
@@ -70,6 +76,8 @@ $hip-color: rgb(132, 171, 168);
   display: block;
   text-decoration: none;
   color: black;
+  padding: 5px 0;
+  border-bottom: 1px solid black;
 }
 
 .sidebar-nav li a:hover {
@@ -84,7 +92,7 @@ $hip-color: rgb(132, 171, 168);
 }
 
 .sidebar-nav > .sidebar-brand {
-  height: 200px;
+  height: 190px;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -94,6 +102,10 @@ $hip-color: rgb(132, 171, 168);
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
+}
+
+.width-40 {
+  width: 40px;
 }
 
 @media(min-width:768px) {
