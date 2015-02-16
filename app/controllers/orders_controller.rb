@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to order_path(@order)
     else
-      raise
       render :new
     end
   end

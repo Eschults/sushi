@@ -9,7 +9,7 @@ $hip-color: rgb(132, 171, 168);
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "navbar";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,300');
 @import "home";
 
 
@@ -96,7 +96,7 @@ $hip-color: rgb(132, 171, 168);
 }
 
 .sidebar-nav > .sidebar-brand {
-  height: 190px;
+  height: 210px;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -138,4 +138,8 @@ $hip-color: rgb(132, 171, 168);
         position: relative;
         margin-right: 0;
     }
+}
+
+.padding-none {
+  padding: 0;
 }
