@@ -15,8 +15,10 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :currency    => 'eur'
     )
+
+    save_stripe_customer_id(user, customer.id)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
