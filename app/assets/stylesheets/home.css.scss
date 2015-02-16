@@ -1,5 +1,17 @@
+.logo-navbar {
+  height: 100px;
+}
+
 .jumbotron {
   background-image: url('home.jpg');
   background-size: cover;
-  height: 630px;
+  height: 800px;
+  padding-top: 200px;
+  color: white;
+}
+
+.jumbotron h1 {
+  font-size: 32px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+  font-weight: normal;
 }
