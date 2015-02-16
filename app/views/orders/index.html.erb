@@ -1,0 +1,36 @@
+<h2><%= @orders.size == 0 ? "Vous n'avez pas encore commandé sur Hip Cleaner" : "Historique des commandes" %></h2>
+
+
+<% if @orders.size > 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date de la commande</th>
+        <th>Date de récupération</th>
+        <th>Heure de récupération</th>
+        <th>Date de restitution</th>
+        <th>Heure de restitution</th>
+        <th>Prix</th>
+        <th>Paiement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.created_at.strftime("%D") %></td>
+          <td><%= order.pickup_date.strftime("%D") %></td>
+          <td><%= order.pickup_time.strftime("%Hh%M") %></td>
+          <td><%= order.delivery_date.strftime("%D") %></td>
+          <td><%= order.delivery_time.strftime("%Hh%M") %></td>
+          <td><%= order.price %>€</td>
+          <td><%= order.paid ? "Effectué" : "En attente" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to new_order_path, class: "btn btn-primary" do %>
+  <i class="fa fa-check"></i> Réserver un groom
+<% end %>
+

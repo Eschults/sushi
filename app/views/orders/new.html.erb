@@ -1,17 +1,13 @@
-<h2>Réservez un groom</h2>
-<p>Pour obtenir un rendez-vous dans la journée, vous devez réserver avant 16h. Votre Groom se chargera de l'inventaire de vos vêtements lors de ce rendez-vous. Pour plus d'informations, cliquez ici.</p>
-
+<div class="col-md-12">
+  <h2>Réservez un groom</h2>
+  <p>Pour obtenir un rendez-vous dans la journée, vous devez réserver avant 16h. Votre Groom se chargera de l'inventaire de vos vêtements lors de ce rendez-vous. Pour plus d'informations, cliquez ici.</p>
+</div>
 <div class="col-md-4">
   <%= render "form" %>
 </div>
 
 <% content_for :js do %>
   <% javascript_tag do %>
-    $(document).ready(function() {
-      $('.datetime_box').datetimepicker({
-        minDate: new Date(),
-        showOn: "button",
-      });
-    });
+
   <% end %>
 <% end %>

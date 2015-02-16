@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  get "tarifs", to: "pages#tarifs"
+
   resources :orders, only: [:new, :create, :index, :show]
 
   resources :users, only: [:edit, :update]

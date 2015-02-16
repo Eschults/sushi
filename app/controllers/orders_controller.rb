@@ -7,8 +7,9 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     if @order.save
-      redirect_to show_path(@order)
+      redirect_to order_path(@order)
     else
+      raise
       render :new
     end
   end
@@ -24,6 +25,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:pickup_date, :delivery_date)
+    params.require(:order).permit(:pickup_date, :delivery_date, :pickup_time, :delivery_time)
   end
 end
