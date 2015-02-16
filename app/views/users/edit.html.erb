@@ -3,31 +3,31 @@
   <%= form_for @user do |f| %>
     <div class="form-group">
       <%= f.label :first_name, "Prénom" %>
-      <%= f.text_field :first_name, class: "form-control" %>
+      <%= f.text_field :first_name, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :last_name, "Nom" %>
-      <%= f.text_field :last_name, class: "form-control" %>
+      <%= f.text_field :last_name, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :email %>
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.text_field :email, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :phone, "Téléphone" %>
-      <%= f.text_field :phone, class: "form-control" %>
+      <%= f.text_field :phone, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :street, "Rue" %>
-      <%= f.text_field :street, class: "form-control" %>
+      <%= f.text_field :street, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :zipcode, "Code postal" %>
-      <%= f.text_field :zipcode, class: "form-control" %>
+      <%= f.text_field :zipcode, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :city, "Ville" %>
-      <%= f.text_field :city, class: "form-control" %>
+      <%= f.text_field :city, required: true, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :address_details, "Digicode, bâtiment, étage..." %>
