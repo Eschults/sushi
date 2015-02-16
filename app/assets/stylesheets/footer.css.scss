@@ -1,5 +1,14 @@
 .black-footer {
-  background-color: rgba(10, 10, 10, 0.9);
+  background-color: rgb(132, 171, 168);
   color: white;
   padding: 30px 0px;
 }
+
+.black-footer a {
+  color: black;
+}
+
+.black-footer a:hover {
+  font-weight: 700;
+}
+
