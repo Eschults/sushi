@@ -8,18 +8,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <%= image_tag "logo.png", class: "logo-navbar"%>
-      </a>
+        <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "navbar-brand", id: "logo" %>
+        <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Accueil', "#{root_path}#welcome-helper" %></li>
-        <li><%= link_to "Comment ça marche", "#{root_path}#how-it-works-scroll-helper" %></li>
-        <li><%= link_to "Prix", "#{root_path}#pricing-scroll-helper" %></li>
-        <li><%= link_to 'Faq', root_path %></li>
+        <li><%= link_to 'ACCUEIL', "#{root_path}#welcome-helper" %></li>
+        <li><%= link_to "COMMENT CA MARCHE", "#{root_path}#how-it-works-scroll-helper" %></li>
+        <li><%= link_to "PRIX", "#{root_path}#pricing-scroll-helper" %></li>
+        <li><%= link_to 'FAQ', root_path %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
