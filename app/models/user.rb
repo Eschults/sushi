@@ -27,4 +27,13 @@ class User < ActiveRecord::Base
       errors.add :base, "There was a problem with your credit card."
       false
   end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def full_address
+    "#{self.street}, #{self.zipcode}"
+  end
+
 end
