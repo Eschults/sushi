@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations" }
 
   root to: "pages#home"
 
@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
 
   resources :stripe_customers
+
+  resources :stripe_payments
 
 end

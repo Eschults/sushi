@@ -1,0 +1,30 @@
+<% if current_user.admin %>
+  <div class="col-xs-12">
+    <h2>Générer le paiement d'une commande</h2>
+    <p>
+      Renseigne l'id de l'order, le prix et valide !
+    </p>
+  </div>
+
+  <div class="col-md-4">
+    <%= form_tag stripe_payments_path, id: "stripe_payment_form" do %>
+      <span class="payment-errors"></span>
+      <div class="form-group">
+        <%= label_tag :order_id, "ID de la commande" %>
+        <%= text_field_tag :order_id, nil, name: "order_id", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :amount_cents, "Prix en cents" %>
+        <%= number_field_tag :amount_cents, nil, name: "amount_cents", class: "form-control" %>
+      </div>
+      <%= submit_tag "Valider", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+
+  <% content_for :js do %>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <%= javascript_tag do %>
+    <% end %>
+  <% end %>
+<% end %>
