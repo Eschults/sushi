@@ -14,8 +14,21 @@ $hip-color: rgb(132, 171, 168);
 @import "footer";
 @import "navbar";
 
+body {
+  font-family: 'Open Sans';
+  font-weight: 300;
+}
+
 .logo {
   height: 200px;
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.form-control {
+  border-radius: 2px;
 }
 
 #wrapper {
@@ -142,4 +155,15 @@ $hip-color: rgb(132, 171, 168);
 
 .padding-none {
   padding: 0;
+}
+
+.btn-facebook {
+  background-color: #3A5795;
+  width: 100%;
+  color: white;
+}
+
+.btn-facebook:hover {
+  color: white;
+  font-weight: bold;
 }
