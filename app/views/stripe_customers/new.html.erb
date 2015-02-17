@@ -11,46 +11,35 @@
     <span class="payment-errors"></span>
     <div class="form-group">
       <%= label_tag :number, "Numéro de carte" %>
-      <%= text_field_tag :number, nil, name: nil, size: 20, class: "form-control", 'data-stripe' => 'number' %>
+      <%= text_field_tag :number, nil, name: nil, size: 20, class: "form-control", 'data-stripe' => 'number', id: "card-number" %>
     </div>
     <div class="form-group">
       <%= label_tag :card_code, "Code de sécurité (CVC)" %>
-      <%= text_field_tag :card_code, nil, name: nil, size: 4, class: "form-control", 'data-stripe' => 'cvc' %>
+      <%= text_field_tag :card_code, nil, name: nil, size: 4, class: "form-control", 'data-stripe' => 'cvc', id: 'card-cvc' %>
     </div>
     <div class="form-group">
       <%= label_tag :card_month, "Expiration (MM / AAAA)" %>
       <div class="row">
         <div class="col-xs-3">
-          <%= text_field_tag :card_month, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-month' %>
+          <%= text_field_tag :card_month, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-month', id: "card-expiry-month" %>
         </div>
 
         <div class="col-xs-4">
-          <%= text_field_tag :card_year, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-year' %>
+          <%= text_field_tag :card_year, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-year', id: "card-expiry-year" %>
         </div>
       </div>
     </div>
-    <%= submit_tag "Valider", class: "btn btn-primary" %>
   <% end %>
+  <button id="valider", class="btn btn-primary">Valider</button>
 </div>
 
 
 <% content_for :js do %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  <% javascript_tag do %>
+  <%= javascript_tag do %>
+    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
     $(document).ready(function() {
-      Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
-
-      $('#stripe_customer_form').submit(function(event) {
-        var $form = $(this);
-
-        // Disable the submit button to prevent repeated clicks
-        $form.find('button').prop('disabled', true);
-
-        Stripe.card.createToken($form, stripeResponseHandler);
-
-        // Prevent the form from submitting with the default action
-        return false;
-      });
+      stripeCustomerCreation();
     })
   <% end %>
 <% end %>

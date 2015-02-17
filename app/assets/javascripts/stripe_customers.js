@@ -14,4 +14,24 @@ function stripeResponseHandler(status, response) {
     // and submit
     $form.get(0).submit();
   }
-};
+}
+
+
+function stripeCustomerCreation() {
+  $('#valider').on('click', function(event) {
+    var $form = $('#stripe_customer_form');
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.card.createToken({
+      number: $('#card-number').val(),
+      cvc: $('#card-cvc').val(),
+      exp_month: $('#card-expiry-month').val(),
+      exp_year: $('#card-expiry-year').val()
+    }, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+}

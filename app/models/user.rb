@@ -46,6 +46,35 @@ class User < ActiveRecord::Base
   end
 
   def stripe_customer
-    Stripe::Customer.retrieve(stripe_customer_token)
+    @stripe_customer ||= (
+      ensure_stripe_customer!
+      Stripe::Customer.retrieve(stripe_customer_token)
+    )
+  end
+
+  def ensure_stripe_customer!
+    return if stripe_customer_token.present?
+
+    @stripe_customer = Stripe::Customer.create(
+      :email => email,
+      :description => name,
+    )
+    update_attribute(:stripe_customer_token, @stripe_customer.id)
+  end
+
+  def create_card(stripe_token)
+    card = stripe_customer.cards.create(card: stripe_token)
+
+    card.name = name
+    card.address_line1 = street if !street.blank?
+    card.address_city = city if !city.blank?
+    card.address_zip = zipcode if !zipcode.blank?
+    card.address_country = "France"
+    card.save
+    card
+  end
+
+  def name
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 end
