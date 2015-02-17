@@ -11,24 +11,25 @@
     <span class="payment-errors"></span>
     <div class="form-group">
       <%= label_tag :number, "Numéro de carte" %>
-      <%= text_field_tag :number, nil, name: nil, size: 20, class: "form-control", html: {data-stripe: "number"}} %>
+      <%= text_field_tag :number, nil, name: nil, size: 20, class: "form-control", 'data-stripe' => 'number' %>
     </div>
     <div class="form-group">
-      <%= label_tag :card_code, "Code de sécurité (CVV)" %>
-      <%= text_field_tag :card_code, nil, name: nil, size: 4, class: "form-control", html: {data: {stripe: "cvc"}} %>
+      <%= label_tag :card_code, "Code de sécurité (CVC)" %>
+      <%= text_field_tag :card_code, nil, name: nil, size: 4, class: "form-control", 'data-stripe' => 'cvc' %>
     </div>
     <div class="form-group">
-      <%= label_tag :card_month, "Expiration" %>
+      <%= label_tag :card_month, "Expiration (MM / AAAA)" %>
       <div class="row">
-        <div class="col-xs-6">
-          <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", class: "form-control", data: {stripe: "exp-month"}} %>
+        <div class="col-xs-3">
+          <%= text_field_tag :card_month, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-month' %>
         </div>
-        <div class="col-xs-6">
-          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", class: "form-control", data: {stripe: "exp-year"}} %>
+
+        <div class="col-xs-4">
+          <%= text_field_tag :card_year, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-year' %>
         </div>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Valider</button>
+    <%= submit_tag "Valider", class: "btn btn-primary" %>
   <% end %>
 </div>
 
@@ -36,30 +37,9 @@
 <% content_for :js do %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <% javascript_tag do %>
-    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+    $(document).ready(function() {
+      Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
 
-    function stripeResponseHandler(status, response) {
-      var $form = $('#stripe_customer_form');
-
-      if (response.error) {
-        // Show the errors on the form
-        $form.find('.payment-errors').text(response.error.message);
-        $form.find('button').prop('disabled', false);
-      } else {
-        // response contains id and card, which contains additional card details
-        var token = response.id;
-        // Insert the token into the form so it gets submitted to the server
-        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-        var card = response.card;
-        bug
-        // Insert the token into the form so it gets submitted to the server
-        $form.append($('<input type="hidden" name="stripeCard" />').val(card));
-        // and submit
-        $form.get(0).submit();
-      }
-    };
-
-    $(function() {
       $('#stripe_customer_form').submit(function(event) {
         var $form = $(this);
 
@@ -71,6 +51,6 @@
         // Prevent the form from submitting with the default action
         return false;
       });
-    });
+    })
   <% end %>
 <% end %>

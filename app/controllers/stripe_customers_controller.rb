@@ -5,11 +5,10 @@ class StripeCustomersController < ApplicationController
   def create
     customer = Stripe::Customer.create(
       email: current_user.email,
-      card: params[:stripeCard]
+      card: params[:stripeToken]
     )
     current_user.stripe_customer_token = customer.id
 
-    raise
     if current_user.save
       redirect_to orders_path
     else
