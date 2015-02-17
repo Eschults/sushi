@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'activeadmin', github: 'activeadmin'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
