@@ -85,4 +85,13 @@ class User < ActiveRecord::Base
   def name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def full_address
+    "#{self.street}, #{self.zipcode}"
+  end
+
 end
