@@ -52,6 +52,14 @@ class User < ActiveRecord::Base
     )
   end
 
+  def ready?
+    if first_name.nil? || last_name.nil? || street.nil? || city.nil? || zipcode.nil?
+      false
+    else
+      true
+    end
+  end
+
   def ensure_stripe_customer!
     return if stripe_customer_token.present?
 
