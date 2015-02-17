@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :stripe_customers
 
+  resources :stripe_payments
+
 end

@@ -27,4 +27,25 @@ class User < ActiveRecord::Base
   #     errors.add :base, "There was a problem with your credit card."
   #     false
   # end
+
+  def deposit(amount_in_cents, card)
+    customer = stripe_customer
+
+    Stripe::Charge.create(
+      amount: amount_in_cents,
+      currency: 'eur',
+      customer: customer.id,
+      card: card.id,
+      description: "Charge for #{email}"
+    )
+
+    customer.account_balance += amount
+    customer.save
+  rescue => e
+    false
+  end
+
+  def stripe_customer
+    Stripe::Customer.retrieve(stripe_customer_token)
+  end
 end
