@@ -20,6 +20,13 @@
         <li><%= link_to "COMMENT CA MARCHE", "#{root_path}#how-it-works-scroll-helper" %></li>
         <li><%= link_to "PRIX", "#{root_path}#pricing-scroll-helper" %></li>
         <li><%= link_to 'FAQ', root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'DECONNEXION', destroy_user_session_path, method: 'delete' %></li>
+        <% else %>
+          <li><%= link_to 'INSCRIPTION', new_user_registration_path %></li>
+          <li><%= link_to 'CONNEXION', new_user_session_path %></li>
+          <li><%= link_to "FACEBOOK", user_omniauth_authorize_path(:facebook) %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
