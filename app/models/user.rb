@@ -19,12 +19,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def save_stripe_token(customer)
-    stripe_customer_token = customer.id
-    self.save
-    rescue Stripe::InvalidRequestError => e
-      logger.error "Erreur Stripe : #{e.message}"
-      errors.add :base, "There was a problem with your credit card."
-      false
-  end
+  # def save_stripe_token(customer)
+  #   stripe_customer_token = customer.id
+  #   self.save
+  #   rescue Stripe::InvalidRequestError => e
+  #     logger.error "Erreur Stripe : #{e.message}"
+  #     errors.add :base, "There was a problem with your credit card."
+  #     false
+  # end
 end
