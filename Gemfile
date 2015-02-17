@@ -8,6 +8,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'rails_12factor', group: :production
+gem 'puma',           group: :production
 
 
 ruby '2.1.2'
