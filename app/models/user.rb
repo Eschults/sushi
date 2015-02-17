@@ -45,19 +45,19 @@ class User < ActiveRecord::Base
     false
   end
 
-  def stripe_customer
-    @stripe_customer ||= (
-      ensure_stripe_customer!
-      Stripe::Customer.retrieve(stripe_customer_token)
-    )
-  end
-
   def ready?
     if first_name.nil? || last_name.nil? || street.nil? || city.nil? || zipcode.nil?
       false
     else
       true
     end
+  end
+
+  def stripe_customer
+    @stripe_customer ||= (
+      ensure_stripe_customer!
+      Stripe::Customer.retrieve(stripe_customer_token)
+    )
   end
 
   def ensure_stripe_customer!
