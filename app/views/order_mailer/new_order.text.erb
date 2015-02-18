@@ -1,0 +1,16 @@
+Bonjour <%= @order.user.first_name %>,
+
+Félicitations, ta commande est confirmée !
+
+Tu trouveras ci-dessous le récapitulatif de celle-ci :
+
+Un groom passera le  <strong><%= @order.pickup_date %></strong> entre <strong> <%= @order.pickup_time %></strong> récupérer votre linge.
+Prépare ton sac de linge sale, nous chauffons les machines !
+
+Retour : Le <strong><%= @order.delivery_date %></strong> entre <strong><%= @order.delivery_time %></strong>.
+
+Ton adresse est : <strong><%= @order.user.street %>, <%= @order.user.zipcode %>, <%= @order.user.city %></strong>.
+
+Ton téléphone est le <strong><%= @order.user.phone %></strong>.
+
+Si vous avez changé d’avis, ou si vous avez un imprévu, vous  pouvez envoyer un e-mail à serviceclientparis@hipcleaner.com et nous ferons le maximum pour satisfaire votre demande. Attention, vous ne pouvez annuler votre commande que jusqu’au jour de la récupération, 17h00.

@@ -12,4 +12,12 @@ class Order < ActiveRecord::Base
   ]
 
   validates_presence_of :user, :pickup_date, :delivery_date, :pickup_time, :delivery_time
+  after_create :send_new_order_email
+
+private
+
+  def send_new_order_email
+    OrderMailer.new_order(self).deliver
+  end
+
 end

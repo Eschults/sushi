@@ -1,0 +1,39 @@
+<html>
+  <body>
+      <h1>
+        Bonjour <%= @order.user.first_name %>,
+      </h1>
+
+      <p>
+        Félicitations, ta commande est confirmée !
+      </p>
+
+      <p>
+        Tu trouveras ci-dessous le récapitulatif de celle-ci :
+      </p>
+
+      <p>
+        Récupération :  <br>
+        Un groom passera le  <strong><%= @order.pickup_date %></strong> entre <strong> <%= @order.pickup_time %></strong> récupérer votre linge.
+      </p>
+
+
+      <p>
+        Retour : <br>
+        Le <strong><%= @order.delivery_date %></strong> entre <strong><%= @order.delivery_time %></strong>.
+      </p>
+
+      <p>
+        Ton adresse : <strong><%= @order.user.street %>, <%= @order.user.zipcode %>, <%= @order.user.city %></strong>.
+      </p>
+
+      <p>
+        Ton téléphone est le <strong><%= @order.user.phone %></strong>.
+      </p>
+
+     <p>Si vous avez changé d’avis, ou si vous avez un imprévu, vous  pouvez envoyer un e-mail à serviceclientparis@hipcleaner.com et nous ferons le maximum pour satisfaire votre demande. Attention, vous ne pouvez annuler votre commande que jusqu’au jour de la récupération, 17h00.
+     </p>
+
+    </div>
+  </body>
+</html>

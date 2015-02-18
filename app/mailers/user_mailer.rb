@@ -8,7 +8,6 @@ class UserMailer < ActionMailer::Base
   #
   def welcome(user)
     @user = user
-
     mail(to: @user.email,
          bcc: "contact@hipcleaner.com",
          subject: 'Bienvenue chez HipCleaner !')
