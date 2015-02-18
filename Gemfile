@@ -11,7 +11,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
-
+gem "letter_opener", group: :development
 
 ruby '2.1.2'
 group :development do
