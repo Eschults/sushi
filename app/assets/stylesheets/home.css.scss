@@ -3,7 +3,7 @@
 }
 
 .jumbotron {
-  background-image: asset_url('home4.jpg');
+  background-image: asset-url(asset-path('home4.jpg'));
   background-size: cover;
   height: 600px;
   padding-top: 250px;
