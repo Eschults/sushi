@@ -10,4 +10,11 @@ class PagesController < ApplicationController
 
   def tarifs
   end
+
+  def faq
+  end
+
+  def cgu
+  end
+
 end
