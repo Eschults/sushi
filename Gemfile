@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+ruby '2.2.0'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 gem "letter_opener", group: :development
