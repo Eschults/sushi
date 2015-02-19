@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "tarifs", to: "pages#tarifs"
   get "about", to: "pages#about"
+  get "faq", to: "pages#faq"
+  get "cgu", to: "pages#cgu"
 
   resources :orders, only: [:new, :create, :index, :show]
 

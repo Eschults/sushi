@@ -4,9 +4,13 @@
       <div class="col-xs-12 col-sm-3">
         <h4>HipCleaner</h4>
         <ul class="list-unstyled">
-          <li><%= link_to 'Inscription', root_path %></li>
-          <li><%= link_to 'Connexion',  root_path %></li>
-          <li><%= link_to 'Faq', root_path, target: "_blank" %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to 'Deconnexion', destroy_user_session_path, method: 'delete' %></li>
+            <% else %>
+            <li><%= link_to 'Inscription', new_user_registration_path %></li>
+            <li><%= link_to 'Connexion', new_user_session_path %></li
+            <% end %>
+          <li><%= link_to 'Faq', faq_path, target: "_blank" %></li>
         </ul>
       </div>
       <div class="col-xs-12 col-sm-3">
@@ -20,7 +24,7 @@
       <div class="col-xs-12 col-sm-3">
         <h4>Conditions</h4>
         <ul class="list-unstyled">
-          <li><%= link_to 'CGU', root_path %></li>
+          <li><%= link_to 'CGU', cgu_path %></li>
           <li><%= link_to 'Mentions Légales', "#" %></li>
         </ul>
       </div>
