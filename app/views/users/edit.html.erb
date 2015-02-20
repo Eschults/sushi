@@ -1,7 +1,11 @@
-<div class="col-md-5">
+<div class="col-xs-12">
   <h1>Mes informations</h1>
+  <br>
+  <br>
+</div>
 
-  <%= form_for @user do |f| %>
+<%= form_for @user do |f| %>
+  <div class="col-md-5">
     <div class="form-group">
       <%= f.label :first_name, "Prénom" %>
       <%= f.text_field :first_name, required: true, class: "form-control" %>
@@ -18,6 +22,8 @@
       <%= f.label :phone, "Téléphone" %>
       <%= f.text_field :phone, required: true, class: "form-control" %>
     </div>
+  </div>
+  <div class="col-md-5">
     <div class="form-group">
       <%= f.label :street, "Rue" %>
       <%= f.text_field :street, required: true, class: "form-control" %>
@@ -34,6 +40,8 @@
       <%= f.label :address_details, "Digicode, bâtiment, étage..." %>
       <%= f.text_area :address_details, class: "form-control" %>
     </div>
+  </div>
+  <div class="col-xs-12">
     <%= f.submit "Enregistrer", class: "btn btn-primary" %>
-  <% end %>
-</div>
+  </div>
+<% end %>

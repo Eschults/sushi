@@ -1,6 +1,8 @@
 class SessionsController < Devise::SessionsController
-  layout 'home', only: [:new]
-
   protected
+
+  def after_sign_in_path_for(resource)
+    new_order_path
+  end
 
 end
