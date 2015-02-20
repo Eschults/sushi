@@ -5,8 +5,8 @@
 .jumbotron {
   background-image: image-url("home4.jpg");
   background-size: cover;
-  height: 600px;
-  padding-top: 250px;
+  height: 830px;
+  padding-top: 400px;
   color: white;
 }
 
@@ -22,10 +22,16 @@
 .why-hipcleaner {
   padding-top: 50px;
   padding-bottom: 60px;
+  h2{
+    font-size: 40px;
+  }
+  img{
+    height: 100px;
+  }
 }
 
 .title {
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .servicestitle {
@@ -60,6 +66,8 @@
 #btn-color {
   background-color: rgb(229, 25, 50);
   border: 0px;
+  border-bottom: 4px solid #949599;
+  border-right: 4px solid #FED7C0;
 }
 
 .table-home tbody td {
