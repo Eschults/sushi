@@ -8,6 +8,23 @@
   height: 830px;
   padding-top: 400px;
   color: white;
+  font-weight: 700;
+}
+
+.jumbotron h1 {
+  font-weight: 700;
+}
+
+.jumbotron p {
+  font-weight: 300;
+}
+
+.jumbotronfaq {
+  background-image: image-url("home4.jpg");
+  background-size: cover;
+  height: 200px;
+  padding-top: 100px;
+  color: white;;
 }
 
 .jumbotron h1 {
@@ -49,6 +66,12 @@
 }
 
 .map {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: #F4F4F4
+}
+
+.faq {
   padding-top: 40px;
   padding-bottom: 60px;
 }
@@ -64,12 +87,34 @@
 }
 
 #btn-color {
-  background-color: rgb(229, 25, 50);
+  background-color: rgba(80, 80, 80, 0.9);
   border: 0px;
+<<<<<<< HEAD
   border-bottom: 4px solid #949599;
   border-right: 4px solid #FED7C0;
+=======
+  transition: all 0.5s ease-in;
+}
+
+#btn-color:hover{
+  background-color: rgb(239, 72, 54);
+>>>>>>> 742fa97cd2efc6fcab0ec2fa4cc9ed30688d4cd5
 }
 
 .table-home tbody td {
   border: 1px solid rgba(30, 30, 30, 0.9);
 }
+
+.users {
+  padding: 80px;
+}
+
+.comment {
+  padding: 0 70px;
+}
+
+.comment img {
+  border-radius: 50%;
+  padding-bottom: 4px;
+}
+

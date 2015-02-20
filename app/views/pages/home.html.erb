@@ -4,7 +4,8 @@
 
 
 <div class="jumbotron text-center">
- <h1>VOTRE PRESSING A DOMICILE</h1>
+ <h1>NOUS ALLONS VOUS FAIRE AIMER LE PRESSING</h1>
+ <p>Offrez-vous le meilleur du pressing à domicile à Paris sans dépenser plus.</p>
  <br>
  <p><%= link_to "Découvrez HipCleaner", new_order_path, class: "btn btn-primary btn-lg", id: "btn-color" %></p>
 </div>
@@ -12,27 +13,27 @@
 <div class="why-hipcleaner text-center">
   <div id="how-it-works-scroll-helper"></div>
   <div class="title">
-    <h2>Simple et efficace</h2>
+    <h2>As easy as one-two-three</h2>
   </div>
   <div class="container text-center">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <%= image_tag ('ordinateur.png') %>
+        <%= image_tag ('ordinateur2.png') %>
         <div class="vertical-spacer"></div>
         <h4>Commande</h4>
-        <p>L'heure et la date, c'est vous qui décidez ! Commencez dès maintenant à organiser votre temps libre !</p>
+        <p>Passez commande directement sur notre site internet. Vous choisissez l’heure et la date qui vous conviennent. On s’occupe du reste !</p>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= image_tag ('livraison.png') %>
+        <%= image_tag ('homy.png') %>
         <div class="vertical-spacer"></div>
-        <h4>Récupération</h4>
-        <p>Un de nos grooms passe prendre votre linge à votre domicile</p>
+        <h4>Collecte & Livraison</h4>
+        <p>Simplifiez-vous la vie ! Un groom HipCleaner se déplace à votre domicile pour la collecte et la livraison de vos vêtements.</p>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= image_tag ('chemise.png') %>
+        <%= image_tag ('vetement2.png') %>
         <div class="vertical-spacer"></div>
-        <h4>Professionalisme</h4>
-        <p>Nous travaillons uniquement avec des pressings connus et reconnus pour leur savoir-faire et leur expérience </p>
+        <h4>Qualité à petit prix</h4>
+        <p>HipCleaner vous fait bénéficier d’un service de pressing de qualité à domicile au même prix qu’un pressing traditionnel.</p>
       </div>
     </div>
   </div>
@@ -81,15 +82,15 @@
             <tbody style="border:1px solid rgba(30, 30, 30, 0.9)">
               <tr>
                 <td>Drap</td>
-                <td>7,00€</td>
+                <td>6,00€</td>
               </tr>
               <tr>
                 <td>Housse de couette</td>
-                <td>13,00€</td>
+                <td>4,00€</td>
               </tr>
               <tr>
                 <td>Taie d'oreiller</td>
-                <td>5,00€</td>
+                <td>10,00€</td>
               </tr>
             </tbody>
           </table>
@@ -106,22 +107,56 @@
             <tbody style="border:1px solid rgba(30, 30, 30, 0.9)">
               <tr>
                 <td>Couette</td>
-                <td>20,00€</td>
+                <td>19,00€</td>
               </tr>
               <tr>
-                <td>Oreiller</td>
-                <td>14,00€</td>
+                <td>Housse de canapé</td>
+                <td>23,00€</td>
               </tr>
               <tr>
-                <td>Coussin</td>
-                <td>7,00€</td>
+                <td>Oreiller synthétique</td>
+                <td>10,00€</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="col-xs-12 minimum-order">
-        <p>Commande minimum de 20 €. Frais de livraison de 7€, offerts à partir de 35€.</p>
+        <p>Commande minimum de 20 €. Frais de livraison de 7€, offerts à partir de 35€.  <%= link_to 'Plus de prix ici', tarifs_path %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="users text-center">
+  <div class="title"><h2>Nos utilisateurs en parlent</h2></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="comment">
+        <%= image_tag ('fille1.png') %>
+          <p>Quel plaisir de se faire livrer son pressing à domicile. Je recommande chaleureusement ! </p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="comment">
+        <%= image_tag ('gars1.png') %>
+          <p> HipCleaner pour moi c'est : ponctualité, rapidité et efficacité. Bref, un service impeccable ! </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="comment">
+          <%= image_tag ('gars2.png') %>
+          <p>J’ai adoré faire appel à HipCleaner. Un service de qualité, rapide et dont je ne peux déjà plus me passer ! </p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="comment">
+          <%= image_tag ('fille2.png') %>
+          <p>Je travaille énormément et j’ai peu de temps à consacrer au pressing. Les prestations de HipCleaner m’ont vraiment convaincues. Mention spéciale au groom, pontuel et très aimable </p>
+        </div>
       </div>
     </div>
   </div>
