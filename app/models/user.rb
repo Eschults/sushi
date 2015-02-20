@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
   end
 
   def create_card(stripe_token)
-    card = stripe_customer.cards.create(card: stripe_token)
+    card = stripe_customer.sources.create(card: stripe_token)
 
     card.name = name
     card.address_line1 = street if !street.blank?

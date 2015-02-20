@@ -16,12 +16,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'ACCUEIL', "#{root_path}#welcome-helper" %></li>
         <li><%= link_to "COMMENT CA MARCHE", "#{root_path}#how-it-works-scroll-helper" %></li>
         <li><%= link_to "PRIX", "#{root_path}#pricing-scroll-helper" %></li>
         <li><%= link_to 'FAQ', faq_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to 'DECONNEXION', destroy_user_session_path, method: 'delete' %></li>
+          <li><%= link_to 'COMMANDER', new_order_path %></li>
         <% else %>
           <li><%= link_to 'INSCRIPTION', new_user_registration_path %></li>
           <li><%= link_to 'CONNEXION', new_user_session_path %></li>

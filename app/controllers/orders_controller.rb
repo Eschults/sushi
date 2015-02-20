@@ -8,7 +8,11 @@ class OrdersController < ApplicationController
     @order.user = current_user
     if @order.save
       if current_user.stripe_customer_token
-        redirect_to order_path(@order)
+        if Stripe::Customer.retrieve(current_user.stripe_customer_token).default_source != ""
+          redirect_to order_path(@order)
+        else
+          redirect_to new_stripe_customer_path
+        end
       else
         redirect_to new_stripe_customer_path
       end
