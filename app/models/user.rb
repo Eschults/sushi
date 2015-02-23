@@ -68,7 +68,8 @@ class User < ActiveRecord::Base
       :email => email,
       :description => name,
     )
-    update_attribute(:stripe_customer_token, @stripe_customer.id)
+    stripe_customer_token = @stripe_customer.id
+    save
   end
 
   def create_card(stripe_token)

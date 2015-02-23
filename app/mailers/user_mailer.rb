@@ -10,6 +10,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email,
          bcc: "contact@hipcleaner.com",
-         subject: "Bienvenue chez HipCleaner ! #{@user.email}")
+         subject: "Bienvenue chez HipCleaner !")
   end
 end
