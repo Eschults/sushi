@@ -14,8 +14,10 @@
   <% end %>
 </div>
 
-<% content_for :js do %>
+<%= content_for :js do %>
   <% javascript_tag do %>
-
+    $(document).ready(function() {
+      setDeliveryDate();
+    })
   <% end %>
 <% end %>
