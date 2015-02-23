@@ -68,8 +68,8 @@ class User < ActiveRecord::Base
       :email => email,
       :description => name,
     )
-    stripe_customer_token = @stripe_customer.id
-    save
+    self.stripe_customer_token = @stripe_customer.id
+    self.save
   end
 
   def create_card(stripe_token)
