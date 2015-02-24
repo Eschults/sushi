@@ -1,3 +1,8 @@
+<%= content_for(:title) do %>
+  HipCleaner - Commande enregistrée
+<% end %>
+
+
 <h2>Votre commande a bien été enregistrée</h2>
 <p>
   Un de nos grooms va se présenter chez vous le <strong><%= @order.pickup_date.strftime("%d %b %Y") %></strong> à <strong><%= @order.pickup_time.strftime("%Hh%M") %></strong>.
