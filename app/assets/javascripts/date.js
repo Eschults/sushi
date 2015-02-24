@@ -37,16 +37,80 @@ function day(date) {
   return date.slice(8, 10);
 }
 
+function hour(date) {
+  // Tue Feb 24 2015 01:00:00 GMT+0100 (CET)
+  return date.slice(16, 18);
+}
+
 function setDeliveryDate() {
   $('#order_pickup_date').on('change', function() {
-    var pickupDate = Date.parse($(this).val());
+    var pickupDate = Date.parse($(this).val().slice(6, 10) + '-' + $(this).val().slice(3, 5) + '-' + $(this).val().slice(0, 2));
     var deliveryDate = pickupDate + 2 * 86400000;
     deliveryDate = new Date(deliveryDate).toString();
     deliveryYear = year(deliveryDate);
     deliveryMonth = month(deliveryDate);
     deliveryDay = day(deliveryDate);
-    deliveryDate = deliveryYear + "-" + deliveryMonth + "-" +deliveryDay;
+    deliveryDate = deliveryDay + "/" + deliveryMonth + "/" +deliveryYear;
+    deliveryDateJs = deliveryYear + "-" + deliveryMonth + "-" +deliveryDay;
     $('#order_delivery_date').val(deliveryDate);
-    $('#order_delivery_date').attr('min', deliveryDate);
+  })
+}
+
+function setStartDates() {
+  if(parseInt(hour(new Date().toString())) <= 16) {
+    $('#order_pickup_date').datepicker({
+      format: 'dd/mm/yyyy',
+      autoclose: true,
+      clearBtn: true,
+      language: 'fr',
+      multidate: false,
+      todayHighlight: true,
+      startDate: new Date()
+    })
+    $('#order_delivery_date').datepicker({
+      format: 'dd/mm/yyyy',
+      autoclose: true,
+      clearBtn: true,
+      language: 'fr',
+      multidate: false,
+      todayHighlight: true,
+      startDate: new Date(new Date().getTime() + 86400000 * 2)
+    })
+  } else {
+    $('#order_pickup_date').datepicker({
+      format: 'dd/mm/yyyy',
+      autoclose: true,
+      clearBtn: true,
+      language: 'fr',
+      multidate: false,
+      todayHighlight: true,
+      startDate: new Date(new Date().getTime() + 86400000 * 1)
+    })
+    $('#order_delivery_date').datepicker({
+      format: 'dd/mm/yyyy',
+      autoclose: true,
+      clearBtn: true,
+      language: 'fr',
+      multidate: false,
+      todayHighlight: true,
+      startDate: new Date(new Date().getTime() + 86400000 * 2)
+    })
+  }
+}
+
+function checkDeliveryDate() {
+  $('#order_delivery_date').on('change', function() {
+    var pickupValue = $('#order_pickup_date').val();
+    var pickupDate = Date.parse(pickupValue.slice(6, 10) + '-' + pickupValue.slice(3, 5) + '-' + pickupValue.slice(0, 2));
+    var deliveryDate = Date.parse($(this).val().slice(6, 10) + '-' + $(this).val().slice(3, 5) + '-' + $(this).val().slice(0, 2));
+    if(deliveryDate - pickupDate < 86400000 * 2) {
+      $('span').removeClass("hidden");
+      $(this).parent().addClass('has-error');
+      $('#submit').addClass('disabled');
+    } else {
+      $('span').addClass("hidden");
+      $(this).parent().removeClass('has-error');
+      $('#submit').removeClass('disabled');
+    }
   })
 }
