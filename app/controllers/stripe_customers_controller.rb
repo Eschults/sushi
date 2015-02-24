@@ -15,8 +15,8 @@ class StripeCustomersController < ApplicationController
   #   logger.error "Erreur Stripe : #{e.message}"
   #   errors.add :base, "There was a problem with your credit card."
   #   false
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to stripe_customers_path
+  # rescue Stripe::CardError => e
+  #   flash[:error] = e.message
+  #   redirect_to stripe_customers_path
   end
 end
