@@ -1,37 +1,46 @@
-<div class="col-xs-12">
-  <h2>Coordonnées bancaires</h2>
+<% if current_user.ready? %>
+  <div class="col-xs-12">
+    <h2>Coordonnées bancaires</h2>
+    <p>
+      Vos coordonnées bancaires sont transmises à notre prestataire de paiement Stripe sans transiter par nos serveurs.
+    </p>
+  </div>
 
-  <p>
-    Vos coordonnées bancaires sont transmises à notre prestataire de paiement Stripe sans transiter par nos serveurs.
-  </p>
-</div>
+  <div class="col-md-4">
+    <%= form_tag stripe_customers_path, id: "stripe_customer_form" do %>
+      <span class="payment-errors"></span>
+      <div class="form-group">
+        <%= label_tag :number, "Numéro de carte" %>
+        <%= text_field_tag :number, nil, name: nil, size: 20, class: "form-control", 'data-stripe' => 'number', id: "card-number" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :card_code, "Code de sécurité (CVC)" %>
+        <%= text_field_tag :card_code, nil, name: nil, size: 4, class: "form-control", 'data-stripe' => 'cvc', id: 'card-cvc' %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :card_month, "Expiration (MM / AAAA)" %>
+        <div class="row">
+          <div class="col-xs-3">
+            <%= text_field_tag :card_month, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-month', id: "card-expiry-month" %>
+          </div>
 
-<div class="col-md-4">
-  <%= form_tag stripe_customers_path, id: "stripe_customer_form" do %>
-    <span class="payment-errors"></span>
-    <div class="form-group">
-      <%= label_tag :number, "Numéro de carte" %>
-      <%= text_field_tag :number, nil, name: nil, size: 20, class: "form-control", 'data-stripe' => 'number', id: "card-number" %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :card_code, "Code de sécurité (CVC)" %>
-      <%= text_field_tag :card_code, nil, name: nil, size: 4, class: "form-control", 'data-stripe' => 'cvc', id: 'card-cvc' %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :card_month, "Expiration (MM / AAAA)" %>
-      <div class="row">
-        <div class="col-xs-3">
-          <%= text_field_tag :card_month, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-month', id: "card-expiry-month" %>
-        </div>
-
-        <div class="col-xs-4">
-          <%= text_field_tag :card_year, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-year', id: "card-expiry-year" %>
+          <div class="col-xs-4">
+            <%= text_field_tag :card_year, nil, name: nil, class: "form-control", 'data-stripe' => 'exp-year', id: "card-expiry-year" %>
+          </div>
         </div>
       </div>
+    <% end %>
+    <button id="valider", class="btn btn-primary">Valider</button>
+  </div>
+
+<% else %>
+  <div class="col-xs-12">
+    <h2>Réserver un groom</h2>
+    <div class="warning">
+      <p>Avant de passer commande, vous devez renseigner vos prénom, nom, téléphone et adresse à <%= link_to "cette page", edit_user_path(current_user) %> !</p>
     </div>
-  <% end %>
-  <button id="valider", class="btn btn-primary">Valider</button>
-</div>
+  </div>
+<% end %>
 
 
 <% content_for :js do %>
