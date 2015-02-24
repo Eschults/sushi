@@ -56,10 +56,13 @@
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="jumbotron">
+   <%= link_to root_path do %>
+    <%= image_tag "Logo-horizontal-test-gris-rose.png", class: "navbar-brand", id: "logo" %>
+     <% end %>
+  <div class="dialog">
     <div>
-      <h1>La page que vous désirez vistier n'existe pas ou plus.</h1>
-      <p>Vous avez peut-être mal orthographié la page web ou celle-ci a été déplacée.</p>
+      <h1>La page que vous désirez visiter n'existe pas ou plus.</h1>
+      <p>Vous avez peut-être mal orthographié la page web ou celle-ci a été déplacée. Vous pouvez retourner sur la page <%= link_to "page d'accueil", root_path %> </p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
