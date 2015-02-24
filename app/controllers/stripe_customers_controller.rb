@@ -6,7 +6,7 @@ class StripeCustomersController < ApplicationController
     customer = current_user.stripe_customer
     card = current_user.create_card(params[:stripeToken])
     if Stripe::Customer.retrieve(current_user.stripe_customer_token).default_source != nil
-      redirect_to orders_path
+      redirect_to new_order_path
     else
       render :new
     end
