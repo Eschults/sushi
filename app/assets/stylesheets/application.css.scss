@@ -8,13 +8,13 @@ $gray-lighter: lighten($gray-base, 85%);
 $hip-color: rgba(0, 0, 0, 0.2);
 
 @import "bootstrap";
-@import 'bootstrap-datepicker3';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,300');
 @import "home";
 @import "footer";
 @import "navbar";
+@import 'bootstrap-datepicker3';
 
 body {
   font-family: 'Open Sans';

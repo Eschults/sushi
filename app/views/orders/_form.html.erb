@@ -1,7 +1,7 @@
 <%= form_for @order do |f| %>
   <div class="form-group">
     <%= f.label :pickup_date, "Date de récupération" %>
-    <%= f.text_field :pickup_date, required: true, min: Time.now.hour < 17 ? Date.today : Date.today + 1, class: "form-control", 'data-provide' => 'datepicker' %>
+    <%= f.text_field :pickup_date, required: true, value: Time.now.hour <= 16 ? Date.today.strftime('%d/%m/%Y') : (Date.today + 1).strftime('%d/%m/%Y'), class: "form-control datepicker" %>
   </div>
   <div class="form-group">
     <%= f.label :pickup_time, "A quelle heure" %>
@@ -9,11 +9,12 @@
   </div>
   <div class="form-group">
     <%= f.label :delivery_date, "Date de restitution" %>
-    <%= f.date_field :delivery_date, required: true, min: Time.now.hour < 17 ? Date.today + 2 : Date.today + 3, class: "form-control" %>
+    <%= f.text_field :delivery_date, required: true, value: Time.now.hour <= 16 ? (Date.today + 2).strftime('%d/%m/%Y') : (Date.today + 3).strftime('%d/%m/%Y'), class: "form-control datepicker" %>
+    <span class="hidden">La date de restitution doit être au minimum 48h après la date de récupération</span>
   </div>
   <div class="form-group">
     <%= f.label :delivery_time, "A quelle heure" %>
     <%= f.select :delivery_time, Order::TIMERANGES, {}, {class: "form-control"} %>
   </div>
-  <%= f.submit "Réserver", class: "btn btn-primary" %>
+  <%= f.submit "Réserver", class: "btn btn-primary", id: "submit" %>
 <% end %>
