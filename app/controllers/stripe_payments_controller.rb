@@ -14,6 +14,7 @@ class StripePaymentsController < ApplicationController
       :customer => customer.id,
       :description => "#{@user.email} : order n°#{@order.id}"
     )
+    @order.paid = true
   rescue Stripe::CardError => e
   end
 end
