@@ -4,7 +4,7 @@ Félicitations, ta commande est confirmée !
 
 Tu trouveras ci-dessous le récapitulatif de celle-ci :
 
-Un groom passera le <strong><%= @order.pickup_date.strftime('%d/%m/%Y') %></strong> entre <strong><%= @order.pickup_time.strftime('%Hh%M') %> et <%= (@order.pickup_time + 30.minutes).strftime('%HhM') %></strong> récupérer votre linge.
+Un groom passera le <strong><%= @order.pickup_date.strftime('%d/%m/%Y') %></strong> entre <strong><%= @order.pickup_time.strftime('%Hh%M') %> et <%= (@order.pickup_time + 30.minutes).strftime('%Hh%M') %></strong> récupérer votre linge.
 
 Retour : Le <strong><%= @order.delivery_date.strftime('%d/%m/%Y') %></strong> entre <strong><%= @order.delivery_time.strftime('%Hh%M') %> et <%= (@order.delivery_time + 30.minutes).strftime('%Hh%M') %></strong>.
 
