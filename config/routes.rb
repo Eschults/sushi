@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "tarifs", to: "pages#tarifs"
-  get "about", to: "pages#about"
   get "faq", to: "pages#faq"
   get "cgu", to: "pages#cgu"
 
