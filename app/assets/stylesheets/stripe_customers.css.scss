@@ -1,3 +1,24 @@
 // Place all the styles related to the stripe_customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#page-content-wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+  min-height: 1000px;
+}
+
+.panel-stripe {
+  margin-top: 25%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
+  display: none;
+}
+
+.stripe-badge {
+  height: 30px;
+  margin-top: 2px;
+}
+
