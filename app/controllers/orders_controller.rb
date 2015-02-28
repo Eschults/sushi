@@ -1,20 +1,23 @@
 class OrdersController < ApplicationController
   def new
-    if current_user.stripe_customer_token.nil?
-      redirect_to new_stripe_customer_path
-    elsif Stripe::Customer.retrieve(current_user.stripe_customer_token).default_source == ""
-      redirect_to new_stripe_customer_path
-    end
     @order = Order.new
   end
 
   def create
     @order = Order.new(order_params)
     @order.user = current_user
-    if @order.save
-      redirect_to order_path(@order)
+    if current_user.stripe_customer_token
+      if Stripe::Customer.retrieve(current_user.stripe_customer_token).default_source != ""
+        if @order.save
+          redirect_to order_path(@order)
+        else
+          render :new
+        end
+      else
+        redirect_to new_stripe_customer_path
+      end
     else
-      render :new
+      redirect_to new_stripe_customer_path
     end
   end
 

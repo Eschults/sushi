@@ -1,16 +1,24 @@
 <%= content_for(:title) do %>
   HipCleaner - Commander
 <% end %>
-
-<div class="col-md-12">
-  <h2>Réserver un groom</h2>
+<% if current_user.ready? %>
+  <div class="col-md-12">
+    <div class="col-xs-12">
+      <h2>Réserver un groom</h2>
+      <p>Si vous souhaitez un rendez-vous dans la journée, commandez votre Groom avant 16h. Celui-ci se chargera de l'inventaire de vos vêtements lors de ce rendez-vous. Pour plus d'informations, <%= link_to "cliquez ici", faq_path %>.</p>
+    </div>
+    <div class="col-md-4">
+      <%= render "form" %>
+    </div>
+  </div>
+<% else %>
   <div class="col-xs-12">
-    <p>Si vous souhaitez un rendez-vous dans la journée, commandez votre Groom avant 16h. Celui-ci se chargera de l'inventaire de vos vêtements lors de ce rendez-vous. Pour plus d'informations, <%= link_to "cliquez ici", faq_path %>.</p>
+    <h2>Réserver un groom</h2>
+    <div class="warning">
+      <p>Avant de passer commande, vous devez renseigner vos prénom, nom, téléphone et adresse à <%= link_to "cette page", edit_user_path(current_user) %> !</p>
+    </div>
   </div>
-  <div class="col-md-4">
-    <%= render "form" %>
-  </div>
-</div>
+<% end %>
 
 <%= content_for :js do %>
   <% javascript_tag do %>
