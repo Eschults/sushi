@@ -16,6 +16,7 @@
   <div id="wrapper">
     <% if user_signed_in? %>
       <%= render "shared/sidenav" %>
+      <%= render "shared/mobile_navbar" %>
     <% else %>
       <%= render "shared/welcome_sidenav" %>
     <% end %>

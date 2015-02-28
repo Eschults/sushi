@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation text-center" id="mobile-navbar">
+  <div class="container text-center">
+    <div class="navbar-header">
+      <ul class="list-inline text-center">
+
+        <li class="text-center">
+          <%= link_to new_order_path do %>
+            <i class="fa fa-check"></i>
+          <% end %>
+        </li>
+        <li class="text-center margin-left-neg-5">
+          <%= link_to tarifs_path do %>
+            <i class="fa fa-euro"></i>
+          <% end %>
+        </li>
+        <li class="text-center margin-left-neg-5">
+          <%= link_to edit_user_path(current_user) do %>
+            <i class="fa fa-user"></i>
+          <% end %>
+        </li>
+        <li class="text-center margin-left-neg-5">
+          <%= link_to orders_path do %>
+            <i class="fa fa-list"></i>
+          <% end %>
+        </li>
+        <li class="text-center margin-left-neg-5 border-right">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out padding-horizontal-total padding-vertical-23"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
