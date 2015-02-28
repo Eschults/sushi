@@ -26,6 +26,9 @@
     <div class="form-group">
       <%= f.label :phone, "Téléphone" %>
       <%= f.text_field :phone, required: true, class: "form-control" %>
+      <div class="hidden" id="invalid-phone">
+        Merci d'entrer un numéro de téléphone valide
+      </div>
     </div>
   </div>
   <div class="col-md-5">
@@ -49,4 +52,19 @@
   <div class="col-xs-12">
     <%= f.submit "Enregistrer", class: "btn btn-primary" %>
   </div>
+<% end %>
+
+<%= content_for :js do %>
+  <% javascript_tag do %>
+    $('#user_phone').on('focusout', function() {
+      var mobile = $(this).val();
+      if(mobile.match(/^(0|\+33)6( ?\d{2}){4}$/) == null) {
+        $(this).parent().addClass("has-error");
+        $('#invalid-phone').removeClass("hidden")
+      } else {
+        $(this).parent().removeClass("has-error");
+        $('#invalid-phone').addClass("hidden")
+      }
+    })
+  <% end %>
 <% end %>
