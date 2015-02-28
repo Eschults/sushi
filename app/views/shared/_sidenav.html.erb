@@ -6,20 +6,8 @@
       <% end %>
     </li>
     <li>
-      <% if current_user.stripe_customer_token %>
-        <% if Stripe::Customer.retrieve(current_user.stripe_customer_token).default_source != "" %>
-          <%= link_to new_order_path do %>
-            <i class="fa fa-check width-40"></i> Réserver un groom
-          <% end %>
-        <% else %>
-          <%= link_to new_stripe_customer_path do %>
-            <i class="fa fa-check width-40"></i> Réserver un groom
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= link_to new_stripe_customer_path do %>
-          <i class="fa fa-check width-40"></i> Réserver un groom
-        <% end %>
+      <%= link_to new_order_path do %>
+        <i class="fa fa-check width-40"></i> Réserver un groom
       <% end %>
     </li>
     <li>
