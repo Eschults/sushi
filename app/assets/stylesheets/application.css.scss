@@ -10,14 +10,14 @@ $hip-color: rgba(0, 0, 0, 0.2);
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,300');
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import "home";
 @import "footer";
 @import "navbar";
 @import 'bootstrap-datepicker3';
 
 body {
-  font-family: 'Open Sans';
+  font-family:'Oswald', sans-serif;
   font-weight: 300;
 }
 
