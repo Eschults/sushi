@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation text-center" id="welcome-mobile-navbar">
+  <div class="container text-center">
+    <div class="navbar-header">
+      <ul class="list-inline text-center">
+        <li class="text-center">
+          <%= link_to root_path do %>
+            <%= image_tag "logo-naked.png", width: "70" %>
+          <% end %>
+        </li>
+        <li class="text-center margin-left-neg-5">
+          <%= link_to new_user_registration_path do %>
+            INSCRIPTION
+          <% end %>
+        </li>
+        <li class="text-center margin-left-neg-5">
+          <%= link_to new_user_session_path do %>
+            CONNEXION
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

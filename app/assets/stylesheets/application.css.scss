@@ -19,6 +19,9 @@ $hip-color: rgba(0, 0, 0, 0.2);
 body {
   font-family: 'Open Sans';
   font-weight: 300;
+}
+
+#body {
   padding-top: 60px;
 }
 
@@ -173,9 +176,17 @@ body {
     display: none;
   }
 
-  body {
+  #welcome-mobile-navbar {
+    display: none;
+  }
+
+  #body {
     padding-top: 0;
   }
+}
+
+#welcome-mobile-navbar {
+  display: visible;
 }
 
 #mobile-navbar {
@@ -216,6 +227,8 @@ body {
 #mobile-navbar {
   position: absolute;
   top: 0;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 #mobile-navbar .list-inline > li > a {
@@ -227,19 +240,62 @@ body {
   padding-right: 40%;
 }
 
+#mobile-navbar .list-inline > li > #logo-naked {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 #mobile-navbar .list-inline > li > a:hover {
   color: #FED7C0;
 }
 
 #mobile-navbar .list-inline > li {
   line-height: 60px;
-  width: 19%;
+  width: 20%;
   border-left: 1px solid white;
   padding-left: 5px;
   padding-right: 5px;
 }
 
 #mobile-navbar .list-inline > li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#mobile-navbar ul {
+  margin-bottom: 0;
+}
+
+#welcome-mobile-navbar {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  margin-bottom: 0;
+  height: 60px;
+}
+
+#welcome-mobile-navbar .list-inline > li > a {
+  color: $color;
+  height: 60px;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+#welcome-mobile-navbar .list-inline > li > a:hover {
+  color: #FED7C0;
+  text-decoration: none;
+}
+
+#welcome-mobile-navbar .list-inline > li {
+  line-height: 60px;
+  width: 33%;
+  border-left: 1px solid white;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#welcome-mobile-navbar .list-inline > li:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -250,4 +306,3 @@ body {
 .margin-left-neg-5 {
   margin-left: -5px;
 }
-
