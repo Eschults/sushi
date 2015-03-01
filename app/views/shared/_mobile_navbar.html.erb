@@ -2,10 +2,9 @@
   <div class="container text-center">
     <div class="navbar-header">
       <ul class="list-inline text-center">
-
         <li class="text-center">
-          <%= link_to new_order_path do %>
-            <i class="fa fa-check"></i>
+          <%= link_to new_order_path, id: "logo-naked" do %>
+            <%= image_tag "logo-naked.png", width: "30" %>
           <% end %>
         </li>
         <li class="text-center margin-left-neg-5">
@@ -23,7 +22,7 @@
             <i class="fa fa-list"></i>
           <% end %>
         </li>
-        <li class="text-center margin-left-neg-5 border-right">
+        <li class="text-center margin-left-neg-5">
           <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa fa-sign-out padding-horizontal-total padding-vertical-23"></i>
           <% end %>
