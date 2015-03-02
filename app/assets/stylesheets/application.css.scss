@@ -146,6 +146,12 @@ body {
 }
 
 @media(min-width:768px) {
+
+  .comment {
+  max-width: 400px;
+  margin: 0 auto;
+  }
+
   #wrapper {
     padding-left: 250px;
   }
