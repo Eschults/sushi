@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "faq", to: "pages#faq"
   get "cgu", to: "pages#cgu"
   get "service", to: "pages#service"
+  get "/sitemap", to:"pages#sitemap"
 
   resources :orders, only: [:new, :create, :index, :show]
 
