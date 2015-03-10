@@ -17,7 +17,7 @@ GIT
       sass-rails
 
 GIT
-  remote: git@github.com:msevestre/monologue_image_upload.git
+  remote: https://github.com/msevestre/monologue_image_upload
   revision: 0175e7585bebbedfcf0797882625ae421507c660
   specs:
     monologue_image_upload (0.4.0.beta)
