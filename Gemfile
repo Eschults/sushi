@@ -14,6 +14,9 @@ gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 gem "letter_opener", group: :development
 gem 'bootstrap-datepicker-rails'
+gem 'monologue'
+gem "monologue_image_upload", :git => "git@github.com:msevestre/monologue_image_upload.git"
+
 
 ruby '2.1.2'
 group :development do
