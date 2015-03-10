@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations", sessions: "sessions" }
   ActiveAdmin.routes(self)
 
+  mount Monologue::Engine, at: "/blog"
+
   root to: "pages#home"
 
   get "tarifs", to: "pages#tarifs"
