@@ -17,16 +17,6 @@ GIT
       sass-rails
 
 GIT
-  remote: https://github.com/msevestre/monologue_image_upload
-  revision: 0175e7585bebbedfcf0797882625ae421507c660
-  specs:
-    monologue_image_upload (0.4.0.beta)
-      jquery-rails
-      monologue
-      paperclip (~> 3.5.4)
-      rails (>= 4.0.0, < 4.2.0)
-
-GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: a85e2277d642cd18edd27e54dd9a86813d66c398
   specs:
@@ -86,10 +76,6 @@ GEM
     ckeditor (4.0.11)
       mime-types
       orm_adapter (~> 0.5.0)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.7)
-      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -179,11 +165,6 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
-    paperclip (3.5.4)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     pg (0.18.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
@@ -281,7 +262,6 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   monologue
-  monologue_image_upload!
   omniauth-facebook
   pg
   puma
