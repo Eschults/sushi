@@ -1,7 +1,5 @@
 Monologue.config do |config|
 
-  config.image_upload.max_picture_size = 2.megabytes
-  config.image_upload.upload_path = "monologue"
 
   config.site_name = "Le Cleaner du Hipster - BLOG"
   config.site_subtitle = "On va vous faire aimer le pressing : préparez-vous à un service de qualité."
