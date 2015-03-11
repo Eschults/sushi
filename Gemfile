@@ -14,7 +14,6 @@ gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 gem "letter_opener", group: :development
 gem 'bootstrap-datepicker-rails'
-gem 'monologue'
 
 ruby '2.1.2'
 group :development do
