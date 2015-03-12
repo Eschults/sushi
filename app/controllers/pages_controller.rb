@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   layout "home", only: [:home, :faq, :cgu, :service]
+  skip_before_action :authenticate_user!
 
   def home
   end
